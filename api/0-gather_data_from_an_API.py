@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""task 0"""
 import requests
 
 def get_employee_todo_progress(employee_id):
