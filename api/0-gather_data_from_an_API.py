@@ -8,7 +8,7 @@ def get_employee_todo_progress(employee_id):
     api_url = "https://api.example.com/employees/{}/tasks".format(employee_id)
     response = requests.get(api_url)
     response_data = response.json()
-    employee_name = response_data.get("employee_name")
+    name = response_data.get("employee_name")
     total_tasks = len(response_data.get("tasks"))
     done_tasks = sum(task.get("status") == "Done")
     print(f"Employee {name} is done with tasks({done_tasks}/{total_tasks}): ")
