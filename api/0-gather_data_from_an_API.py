@@ -2,6 +2,7 @@
 """task 0"""
 import requests
 
+
 def get_employee_todo_progress(employee_id):
     # Replace this with the actual API endpoint for your TODO list service
     api_url = "https://api.example.com/todo-list/employees/{}/tasks".format(employee_id)
