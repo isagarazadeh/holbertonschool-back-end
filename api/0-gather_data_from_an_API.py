@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-"""tasks 1"""
+"""API task"""
 import requests
+import sys
 
+if len(sys.argv) == 2:
+    url = "https://jsonplaceholder.typicode.com/"
+    user_id = sys.argv[1]
+    r1 = requests.get(f"{url}users/{user_id}/todos")
+    r2 = requests.get(f"{url}users/{user_id}")
+    response1 = r1.json()
+    response2 = r2.json()
+    comp = 0
+    total = len(response1)
+    tasks = ""
 
-def get_employee_todo_progress(employee_id):
-
-    api_url = "https://api.example.com/employees/{}/tasks".format(employee_id)
-    response = requests.get(api_url)
-    response_data = response.json()
-    name = response_data.get("employee_name")
-    total_tasks = len(response_data.get("tasks"))
-    done_tasks = sum(task.get("status") == "Done")
-    print(f"Employee {name} is done with tasks({done_tasks}/{total_tasks}): ")
-
-    for task in response_data.get("tasks"):
-        if task.get("status") == "Done":
-            print(f"\t{task.get('title')}")
-
-
-if __name__ == "__main__":
-    employee_id = int(input("Enter the employee ID: "))
-    get_employee_todo_progress(employee_id)
+    for i in response1:
+        if i["completed"]:
+            comp += 1
+            tasks += f"\t {i['title']}\n"
+    print(f"Employee {response2['name']} is done with tasks({comp}/{total}):")
+    print(tasks, end="")
