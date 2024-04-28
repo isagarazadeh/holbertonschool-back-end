@@ -13,8 +13,8 @@ if len(sys.argv) == 2:
     usr_name = res1["username"]
     for i in todo:
         completed = "True" if i["completed"] else "False"
-            title = i["title"]
-            csvfile.write(f'"{id}","{name}","{completed}","{title}"\n')
+        title = i["title"]
+        csvfile.write(f'"{id}","{name}","{completed}","{title}"\n')
 
     with open(f"{usr_id}.csv", "w") as csv:
         csv.write(string)
