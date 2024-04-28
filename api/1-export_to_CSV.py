@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""API Module"""
+"""API task"""
 import requests
 import sys
 
