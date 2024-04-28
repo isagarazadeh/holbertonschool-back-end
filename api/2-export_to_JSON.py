@@ -20,4 +20,4 @@ if len(sys.argv) == 2:
         dictionary[f"{usr_id}"].append(new_dict)
 
     with open(f"{usr_id}.json", "w") as jsonfile:
-        json.dump(dictionary, jsonfile))
+        json.dump(dictionary, jsonfile)
