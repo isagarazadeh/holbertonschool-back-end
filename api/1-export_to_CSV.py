@@ -14,7 +14,7 @@ if len(sys.argv) == 2:
     for i in todo:
         completed = "True" if i["completed"] else "False"
         title = i["title"]
-        csvfile.write(f'"{id}","{name}","{completed}","{title}"\n')
+        string += f'"{usr_id}","{usr_name}","{i["completed"]}","{i["title"]}"\n'
 
     with open(f"{usr_id}.csv", "w") as csv:
         csv.write(string)
